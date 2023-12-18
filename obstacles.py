@@ -11,7 +11,7 @@ import random
 obstacle_colors = ["medium aquamarine", "hot pink", "pale violet red", "gold", "light blue", "light steel blue", "powder blue", "light sky blue", "pale green"];
 
 
-class cars(Turtle):
+class cars(Turtle): # create car blueprint to create car objects with random coordinates
     def __init__(self):
         super().__init__();
         self.penup()
@@ -28,8 +28,9 @@ class cars(Turtle):
 
 
 class Obstacles():
+    
     def __init__(self):
-        self.turtle = Turtle();
+        self.turtle = Turtle(); # create turtle object 
         self.turtle.penup();
         self.turtle.shape("turtle");
         self.turtle.shapesize(1);
@@ -51,17 +52,17 @@ class Obstacles():
         self.turtle2.setpos(-10,0);
         self.turtle2.write("GAME  OVER", align = "center",  font=('Arial', 20, 'bold'));
     
-    def next_level(self):
+    def next_level(self): # increase level and increase the speed
         self.level += 1;
         self.speed -= 0.01;
         self.level_game();
         
-    def level_game(self):
+    def level_game(self):   
         self.turtle2.clear();
         self.turtle2.setpos(-260,270);
         self.turtle2.write("LEVEL: {0}".format(self.level), align = "center",  font=('Arial', 13, 'bold'));
     
-    def new_level(self, Turtles):
+    def new_level(self, Turtles): # set turtle position randomly for new level 
         self.turtle.setpos(0,-290);
         for i in Turtles:
             i.setposition(random.randint(300,2500), random.randint(-250,250))

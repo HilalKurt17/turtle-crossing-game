@@ -37,14 +37,15 @@ class turtle_crossing_capstone_game():
                 self.cars.move_car(i);
             
             for i in Turtles:
-               
+               # check whether car crash with the turtle or not
                 if i.xcor() <= 15 and i.xcor() >= -15:
                     if i.distance(self.obstacles.turtle) <= 23:
                         self.crash = True;
                         break;
-            if self.crash == True:
+            if self.crash == True: # if there is a crash, finish the game
                 self.obstacles.game_over();
                 break;
+            # if turtle reaches the upper wall increase the level
             if self.obstacles.turtle.ycor() >= 300:
                 self.obstacles.next_level();
                 self.obstacles.new_level(Turtles);
